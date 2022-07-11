@@ -1,13 +1,12 @@
 
 from clf_models_dependencies import *
-global clf, params, clf_fit, ss, clf_cv, df, self_prediction, unknown_prediction, X_train, X_test, y_train, y_test, test_prediction, train_prediction, figsav, Training_scores_mean, Training_scores_std, Test_scores_mean, Test_scores_std
+global clf, params, clf_fit, ss, clf_cv, df, self_prediction, unknown_prediction, X_train, X_test, y_train, y_test, test_prediction, train_prediction, figsav, Training_scores_mean, Training_scores_std, Test_scores_mean, Test_scores_std, df_unknown
 """""""""""""""""""""""""""""""""""""""""""""""""Classifiers"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 class do_classification:
 
-	def __init__(self, data=None, inputs=None, target=None,  normalization=None, predict_unknown=False, unknown_data=None,
-				 correlation=False, feature_imp=False,  ROC_curve=False, verbosity=0):
+	def __init__(self, data=None, inputs=None, target=None,  normalization=None, verbosity=0):
 
 
 		self.data = data
@@ -38,28 +37,8 @@ class do_classification:
 			self.target = target
 
 		self.normalization = normalization
-		self.predict_unknown = predict_unknown
-		self.unknown_data = unknown_data
-		self.correlation = correlation
-		self.feature_imp = feature_imp
-		self.ROC_curve = ROC_curve
 		self.verbosity = verbosity
 
-	"""
-	Parameters:
-
-	data =  any			: 	Dataset for evaluating a model  (default = None)
-	inputs = any		:	Feature set (default = None)
-	target = any		: 	Target which you want to predict  (default = None)
-	normalization: any  :	Method for normalizing the dataset (default = "None"
-	predict_unknown = 	:	Set True if want to make prediction for 'unknown_data' (default = False)	
-	unknown_data = any  :	Dataset to make prediction  (default = None)
-	correlation = bool	:	Plots correlation heatmap if True (default = False)
-	feature_imp = bool	:	Plots feature importance plot using Mutual information method (MI) if True (deafult = False)
-	ROC_curve = bool	:	Plots roc curve if True (default = False)
-	verbosity = integer	:	Degree for printing output messages in the terminal (default = 0, can be 0,1, or 2)
-
-	"""
 
 	@property
 	def timenow(self):
@@ -149,7 +128,7 @@ class do_classification:
 	def RandomForest(_params=None):
 		global clf, params
 		clf = RandomForestClassifier()
-		print("Classification model = 'Random Forest'", '\n')
+		print("---> Classification model = 'Random Forest'", '\n')
 		if _params is None:
 			params = {'max_depth': [2, 3, 4, 5, 6, 8, 10], 'n_estimators': [500, 1000, 1200, 1500]}
 		else:
@@ -160,7 +139,7 @@ class do_classification:
 	def KNeighbors(_params=None):
 		global clf, params
 		clf = KNeighborsClassifier()
-		print("Classification model = 'KNeighbors'", '\n')
+		print("---> Classification model = 'KNeighbors'", '\n')
 		if _params is None:
 			params = {'n_neighbors': [5, 7, 10, 15, 20, 22, 30, 35], 'weights': ['uniform', 'distance'], 'p': [1, 2]}
 		else:
@@ -182,7 +161,7 @@ class do_classification:
 	def GradientBoosting(_params=None):
 		global clf, params
 		clf = GradientBoostingClassifier()
-		print("Classification model = 'Gradient Boosting'", '\n')
+		print("---> Classification model = 'Gradient Boosting'", '\n')
 		if _params is None:
 			params = {'max_depth': [2, 5, 10], 'n_estimators': [100, 500, 1000]}
 		else:
@@ -193,7 +172,7 @@ class do_classification:
 	def DecisionTrees(_params=None):
 		global clf, params
 		clf = DecisionTreeClassifier()
-		print("Classification model = 'Decision Trees'", '\n')
+		print("---> Classification model = 'Decision Trees'", '\n')
 		if _params is None:
 			params = {'max_depth': [2, 5, 10], 'min_samples_split': [2, 5, 10], 'min_samples_leaf': [1, 5, 10]}
 		else:
@@ -204,7 +183,7 @@ class do_classification:
 	def Svc(_params=None):
 		global clf, params
 		clf = SVC()
-		print("Classification model = 'Support Vector'", '\n')
+		print("---> Classification model = 'Support Vector'", '\n')
 		if _params is None:
 			params = {'gamma': [1.0, 0.1, 0.01, 0.001], 'C': [0.1, 1.0, 10.0], 'class_weight':['balanced']}
 		else:
@@ -215,7 +194,7 @@ class do_classification:
 	def NUSvc(_params=None):
 		global clf, params
 		clf = NuSVC()
-		print("Classification model = 'Nu-Support Vector'", '\n')
+		print("---> Classification model = 'Nu-Support Vector'", '\n')
 		if _params is None:
 			params = {'kernel': ['rbf', 'poly'], 'gamma': ['auto', 'scale']}
 		else:
@@ -226,7 +205,7 @@ class do_classification:
 	def SGDC(_params=None):
 		global clf, params
 		clf = SGDClassifier()
-		print("Classification model = 'Stochastic Gradient Descent'", '\n')
+		print("---> Classification model = 'Stochastic Gradient Descent'", '\n')
 		if _params is None:
 			params = {'loss': ['hinge', 'log', 'modified_huber'], 'class_weight':['balanced']}
 		else:
@@ -237,7 +216,7 @@ class do_classification:
 	def LinearDA(_params=None):
 		global clf, params
 		clf = LinearDiscriminantAnalysis()
-		print("Classification model = 'Linear Discrimination Analysis'", '\n')
+		print("---> Classification model = 'Linear Discrimination Analysis'", '\n')
 		if _params is None:
 			params = {'solver': ['svd', 'lsqr', 'eigen'], 'shrinkage':['auto']}
 		else:
@@ -248,7 +227,7 @@ class do_classification:
 	def CalibratedCV(_params=None):
 		global clf, params
 		clf = CalibratedClassifierCV()
-		print("Classification model = 'Calibrated Classifier CV'", '\n')
+		print("---> Classification model = 'Calibrated Classifier CV'", '\n')
 		if _params is None:
 			params = {'method': ['sigmoid', 'isotonic'], 'n_jobs':[5, 10, 20, 30]}
 		else:
@@ -260,7 +239,7 @@ class do_classification:
 	def Mlp(_params=None):
 		global clf, params
 		clf = MLPClassifier()
-		print("Classification model = 'Multi-layer Perceptron'", '\n')
+		print("---> Classification model = 'Multi-layer Perceptron'", '\n')
 		if _params is None:
 			params = {'hidden_layer_sizes':[(8, 8), (8, 6), (8, 4)],'learning_rate_init': [0.01, 0.03, 0.05], 'max_iter': [250], 'activation':['relu', 'identity'],
 								'batch_size':['auto',32, 64], 'solver':['adam', 'lbfgs', 'sgd'], 'random_state': [315]}
@@ -338,99 +317,75 @@ class do_classification:
 		print("{} = ".format(scoring),  round(Test_scores_mean, 4), '+/-', round(Test_scores_std, 4) * 2, 'std', round(Test_scores_std, 4), '\n')
 
 
-	"""
-	Parameters:
-
-	test_size    		= float		:	For specifying test fraction for dataset (default = 0.20)
-	random_no    		= any		: 	Random number for reproducing the results    (default = None)
-	optimization 		= str		:	Method for searching the best hyperparameters for the model  (default = 'Grid'); Available methods are = 'Grid', 'Bayesian' and 'Randomized'
-	cv 			 		= integer	:	cross-validation
-	scoring 	 		= str  		:	Method for the evaluation of model: (default = 'roc_auc'); Available methods are = 'roc_auc', 'roc_auc_ovr', 'roc_auc_ovo', 'accuracy', 'roc_auc_ovr_weighted', 'roc_auc_ovr_weighted', 'f1', 'precision', 'recall'
-	return_dataset   	= str		:   Returns a csv file of training or test dataset (default = None); Available = 'train', 'test'													
-
-	"""
-
 ##############################################******Make Predictions********############################################
 
-	def make_prediction(self, prediction_data= 'test', proba_prediction=False, save_csv=False, file_name= 'predicted_data'):
+	def make_prediction(self, prediction_data= 'test', unknown_data=None, proba_prediction=False, save_csv=False, file_name= 'predicted_data'):
 		global df, unknown_prediction, test_prediction, train_prediction, df_unknown
-		if self.predict_unknown:
-			if prediction_data is None:
-				raise AssertionError("prediction_data is not defined")
-			if prediction_data is 'test':
-				if proba_prediction:
-					test_prediction = clf_fit.predict_proba(X_test)[:,1]
-				else:
-					test_prediction = clf_fit.predict(X_test)
+		if prediction_data is None:
+			raise AssertionError("prediction_data is not defined")
+		elif prediction_data is 'test':
+			if proba_prediction:
+				test_prediction = clf_fit.predict_proba(X_test)[:,1]
+			else:
+				test_prediction = clf_fit.predict(X_test)
 
-				print('*******Prediction_score on testing data*******')
-				print("roc_auc_score", round(roc_auc_score(y_test, test_prediction), 4), '\n')
-				if self.verbosity is 2:
-					for i in range(len(X_test)):
-						print(y_test[i], test_prediction[i])
-				else:
-					pass
-				if save_csv:
-					predicted_test_data = {'true':y_test, 'predicted':test_prediction}
-					df = pd.DataFrame(predicted_test_data)
-					df.index = X_test.index
-					df.to_csv(file_name + '_' + self.timenow + '.csv')
+			print('*******Prediction_score on testing data*******')
+			print("roc_auc_score", round(roc_auc_score(y_test, test_prediction), 4), '\n')
+			if self.verbosity is 2:
+				for i in range(len(X_test)):
+					print(y_test[i], test_prediction[i])
+			else:
+				pass
+			if save_csv:
+				predicted_test_data = {'true':y_test, 'predicted':test_prediction}
+				df = pd.DataFrame(predicted_test_data)
+				df.index = X_test.index
+				df.to_csv(file_name + '_' + self.timenow + '.csv')
 
-			if prediction_data is 'train':
-				if proba_prediction:
-					test_prediction = clf_fit.predict_proba(X_test)[:,1]
-				else:
-					train_prediction = clf_fit.predict(X_train)
+		elif prediction_data is 'train':
+			if proba_prediction:
+				train_prediction = clf_fit.predict_proba(X_train)[:,1]
+			else:
+				train_prediction = clf_fit.predict(X_train)
 
-				print('*******Prediction_score on training data*******')
-				print("roc_auc_score", round(roc_auc_score(y_train, train_prediction), 4))
-				if self.verbosity is 2:
-					for i in range(len(X_train)):
-						print(y_train[i], train_prediction[i])
-				else:
-					pass
-				if save_csv:
-					predicted_train_data = {'true': y_train, 'predicted': train_prediction}
-					df = pd.DataFrame(predicted_train_data)
-					df.index = self.inputs.index
-					df.to_csv(file_name + '_' + self.timenow + '.csv')
+			print('*******Prediction_score on training data*******')
+			print("roc_auc_score", round(roc_auc_score(y_train, train_prediction), 4))
+			if self.verbosity is 2:
+				for i in range(len(X_train)):
+					print(y_train[i], train_prediction[i])
+			else:
+				pass
+			if save_csv:
+				predicted_train_data = {'true': y_train, 'predicted': train_prediction}
+				df = pd.DataFrame(predicted_train_data)
+				df.index = self.inputs.index
+				df.to_csv(file_name + '_' + self.timenow + '.csv')
 
-			if prediction_data is 'unknown':
-				if self.unknown_data is None:
-					raise NameError("'unknown_data' is not defined")
-				else:
-					if self.normalization is 'zscore':
-						norm_data = zscore(self.unknown_data)
-						df_unknown = pd.DataFrame(norm_data, columns=self.unknown_data.columns)
-					if self.normalization is 'minmax':
-						minmax_data = MinMaxScaler()
-						norm_data = minmax_data.fit_transform(self.unknown_data)
-						df_unknown = pd.DataFrame(norm_data, columns=self.unknown_data.columns)
-					elif self.normalization is None:
-						df_unknown = (self.unknown_data - self.unknown_data.mean()) / self.unknown_data.std()
-				if proba_prediction:
-					unknown_prediction = clf_fit.predict_proba(df_unknown)
-				else:
-					unknown_prediction = clf_fit.predict(df_unknown)
-				if self.verbosity is 2:
-					print([unknown_prediction])
-				else:
-					pass
-				if save_csv:
-					df = pd.DataFrame(unknown_prediction, columns=['pred'])
-					df.index = df_unknown.index
-					df.to_csv(file_name + '_' + self.timenow + '.csv')
-
-
-
-	"""
-	Parameters:
-
-	prediction_data		= bool		:	Dataset to make predictions; only if predict_unknown is True (default = 'test')
-	save_csv	 		= bool		:	Whether to save a csv file of predictions or not (default = False)
-	file_name	 		= str		:	Name for the csv file
-	
-	"""
+		elif prediction_data is 'unknown':
+			if unknown_data is None:
+				raise NameError("'unknown_data' is not defined. Define an unknown dataset")
+			else:
+				if self.normalization is 'zscore':
+					norm_data = zscore(unknown_data)
+					df_unknown = pd.DataFrame(norm_data, columns=unknown_data.columns)
+				if self.normalization is 'minmax':
+					minmax_data = MinMaxScaler()
+					norm_data = minmax_data.fit_transform(unknown_data)
+					df_unknown = pd.DataFrame(norm_data, columns=unknown_data.columns)
+				elif self.normalization is None:
+					df_unknown = (unknown_data - unknown_data.mean()) / unknown_data.std()
+			if proba_prediction:
+				unknown_prediction = clf_fit.predict_proba(df_unknown)
+			else:
+				unknown_prediction = clf_fit.predict(df_unknown)
+			if self.verbosity is 2:
+				print([unknown_prediction])
+			else:
+				pass
+			if save_csv:
+				df = pd.DataFrame(unknown_prediction, columns=['pred'])
+				df.index = df_unknown.index
+				df.to_csv(file_name + '_' + self.timenow + '.csv')
 
 
 ##############################################******Visualization********###############################################
@@ -440,160 +395,111 @@ class do_classification:
 						  figsize=(16, 12), fontsize=14, save_fig=False, save_csv=False, fig_name="Correlation_plot.png"):
 		global figsav
 
-		if self.correlation:
-			methods = ['pearson', 'kendall', 'spearman']
-			if method not in methods:
-				method_error = "{} is not a valid method. Valid methods are 'pearson','kendall', and 'spearman'".format(method)
-				raise ValueError(method_error)
+		methods = ['pearson', 'kendall', 'spearman']
+		if method not in methods:
+			method_error = "{} is not a valid method. Valid methods are 'pearson','kendall', and 'spearman'".format(method)
+			raise ValueError(method_error)
 
-			# for inputs in self.inputs:
-			df_ = pd.DataFrame(self.inputs)
-			correlation = df_.corr(method=method, min_periods=1)
+		# for inputs in self.inputs:
+		df_ = pd.DataFrame(self.inputs)
+		correlation = df_.corr(method=method, min_periods=1)
 
-			if matrix_type is 'full':
-				plt.figure(figsize=figsize)
-				plt.rcParams['font.size'] = fontsize
-				figsav = sns.heatmap(correlation, annot=annot, cmap=cmap, linewidths=0.5,
-										 vmax=vmax, vmin=vmin)
-				plt.show()
+		if matrix_type is 'full':
+			plt.figure(figsize=figsize)
+			plt.rcParams['font.size'] = fontsize
+			figsav = sns.heatmap(correlation, annot=annot, cmap=cmap, linewidths=0.5,
+									 vmax=vmax, vmin=vmin)
+			plt.show()
 
-			elif matrix_type is 'upper':
-				mask_ut = np.tril(np.ones(correlation.shape)).astype(np.bool)
-				plt.figure(figsize=figsize)
-				plt.rcParams['font.size'] = fontsize
-				figsav = sns.heatmap(correlation, mask=mask_ut, annot=annot, cmap=cmap, linewidths=0.5,
-										 vmax=vmax, vmin=vmin)
-				plt.show()
+		elif matrix_type is 'upper':
+			mask_ut = np.tril(np.ones(correlation.shape)).astype(np.bool)
+			plt.figure(figsize=figsize)
+			plt.rcParams['font.size'] = fontsize
+			figsav = sns.heatmap(correlation, mask=mask_ut, annot=annot, cmap=cmap, linewidths=0.5,
+									 vmax=vmax, vmin=vmin)
+			plt.show()
 
-			elif matrix_type is 'lower':
-				mask_ut = np.triu(np.ones(correlation.shape)).astype(np.bool)
-				plt.figure(figsize=figsize)
-				plt.rcParams['font.size'] = fontsize
-				figsav = sns.heatmap(correlation, mask=mask_ut, annot=annot, cmap=cmap, linewidths=0.5,
-										 vmax=vmax, vmin=vmin)
-				plt.show()
+		elif matrix_type is 'lower':
+			mask_ut = np.triu(np.ones(correlation.shape)).astype(np.bool)
+			plt.figure(figsize=figsize)
+			plt.rcParams['font.size'] = fontsize
+			figsav = sns.heatmap(correlation, mask=mask_ut, annot=annot, cmap=cmap, linewidths=0.5,
+									 vmax=vmax, vmin=vmin)
+			plt.show()
 
-			else:
-				raise NameError("{} is not a valid matrix_type. Available matrix_type are 'full', 'upper', or 'lower'".format(matrix_type))
+		else:
+			raise NameError("{} is not a valid matrix_type. Available matrix_type are 'full', 'upper', or 'lower'".format(matrix_type))
 
-			df_corr = pd.DataFrame(correlation)
-			if save_csv:
-				df_corr.to_csv("Correlation.csv")
+		df_corr = pd.DataFrame(correlation)
+		if save_csv:
+			df_corr.to_csv("Correlation.csv")
 
-			if save_fig:
-				figsav.figure.savefig(fig_name+self.timenow+'.png', format='png', dpi=600)
+		if save_fig:
+			figsav.figure.savefig(fig_name+self.timenow+'.png', format='png', dpi=600)
 
-
-	"""
-	Parameters:
-	
-	method 		= str  	: 	Method for plottting correlation matrix (default = 'pearson') Available methods = 'perason', 'kendall', or 'spearman'  
-	matrix_type	= bool 	:	Type of correlation-matrix for plotting  (default = upper); Available = 'full', 'upper', 'lower'
-	annot		= bool 	:	Whether to show the correlation with numbers or not  (default = False)
-	cmap 		= any  	: 	Color map for plot  (default = coolwarm)
-	vmin		= float	:	Minimum value for color bar (default = -1.0)
-	vmax		= float	:	Maximum value for color bar (default =  1.0)
-	figsize 	= tuple : 	Tuple of two integers for determining the figure size    (default =(16, 12))
-	fontsize 	= int  	:	Font size of color-bar and x, y axis   (default =14)
-	save_fig 	= bool 	: 	save plot in the current working directory if True  (default = False)
-	save_csv 	= bool 	: 	save a csv file if True  (default = False)
-	figname 	= str   :	name of fig if save_fig is True  (default = "Correlation_plot.png")
-	
-	"""
 
 	def plot_feature_imp(self, kind="barh", random_no=None, figsize=(22,16), fontsize=20, color='#ff8000', lw=5.0, save_fig=False, fig_name="Feature_imp_Plot(MI).png"):
-		if self.feature_imp:
-			X_train, X_test, y_train, y_test = train_test_split(self.inputs, self.target, test_size=0.2, stratify=self.target)
-			MI = mutual_info_classif(X_train, y_train, random_state=random_no)
-			MI = pd.Series(MI)
-			MI.index = X_train.columns
-			MI.sort_values(ascending=True, inplace=True)
-			print(MI)
+		global figsav
+		MI = mutual_info_classif(X_train, y_train, random_state=random_no)
+		MI = pd.Series(MI)
+		MI.index = X_train.columns
+		MI.sort_values(ascending=True, inplace=True)
+		print(MI)
 
-			plot_kind=['barh', 'bar', 'pie', 'line', 'area']
-			if kind in plot_kind:
-				if kind is "pie":
-					figsav = MI.plot(kind=kind, normalize=False)
-					plt.show()
-				else:
-					figsav = MI.plot(kind=kind, figsize=figsize, fontsize=fontsize, color=color, lw=lw)
-					plt.show()
+		plot_kind=['barh', 'bar', 'pie', 'line', 'area']
+		if kind in plot_kind:
+			if kind is "pie":
+				figsav = MI.plot(kind=kind, normalize=False)
+				plt.show()
 			else:
-				error="{} is not a valid type for plotting feature importance. Only 'barh', 'bar', 'pie', 'line', 'area' can be used for plotting".format(kind)
-				raise ValueError(error)
+				figsav = MI.plot(kind=kind, figsize=figsize, fontsize=fontsize, color=color, lw=lw)
+				plt.show()
+		else:
+			error="{} is not a valid type for plotting feature importance. Only 'barh', 'bar', 'pie', 'line', 'area' can be used for plotting".format(kind)
+			raise ValueError(error)
 
-			if save_fig:
-				figsav.figure.savefig(fig_name+self.timenow+'.png', format='png', dpi=600)
-
-
-	"""
-	Parameters:
-
-	kind 		= str		: 	Type of plot: (default = 'barh'); Available types = 'barh', 'bar', 'pie', 'line', 'area'  
-	random_no 	= any		:	If want to set any random_state (default = None)
-	figsize 	= tuple  	: 	Tuple of two integers for determining the figure size (default =(22, 16))		 
-	fontsize 	= int  		:	Font size of color-bar and x, y axis (default =20)
-	color 		= str  		: 	Color for plot    (default = '#ff8000')	
-	lw 			= float 	: 	Width of bars if kind == 'bar or barh' (default = 5.0)
-	save_fig 	= bool 		: 	Save plot in the current working directory if True (default = False)
-	figname 	= str   	:	Name of fig if save_fig is True (default = "Feature_imp_Plot(MI).png")
-
-	"""
+		if save_fig:
+			figsav.figure.savefig(fig_name+self.timenow+'.png', format='png', dpi=600)
 
 
 	def plot_roc(self, figsize=(9, 7), lines_fmt=dict(color=["#339966", "#cc0000"], lw=3), label='ROC_curve', fontsize=18, ticksize=18, fig_name='roc_plot', save_fig=False):
 
-		if self.ROC_curve:
-			pd.options.display.width = 0
+		pd.options.display.width = 0
 
-			flatui = lines_fmt['color']
-			palette = sns.color_palette(flatui)
-			sns.set_palette(palette)
-
-
-			linewidth = lines_fmt['lw']
-
-			labelsize = fontsize
-			ticksize = ticksize
-
-			# mean_fpr = np.linspace(0, 1, 1000)
-			y_proba = clf_fit.predict_proba(X_test)[::,1]
-			fpr, tpr, _ = roc_curve(y_test, y_proba)
-			# auc = roc_auc_score(y_test, y_proba)
-			plt.legend(loc=4)
-			fig, ax = plt.subplots(figsize=figsize)
-			plt.rc('font', family='serif')
-			ax.plot(fpr, tpr, label=label, lw=linewidth, alpha=.8)
-			ax.plot(fpr, fpr, linestyle='--', lw=linewidth, label='Chance', alpha=.8)
-
-			ax.set(xlim=[-0.02, 1.02], ylim=[-0.02, 1.02])
-			ax.legend(loc="lower right")
-			ax.set_xlabel('False positive rate', fontsize=labelsize)
-			ax.set_ylabel('True positive rate', fontsize=labelsize)
-			plt.xticks(fontsize=ticksize)
-			plt.yticks(fontsize=ticksize)
-
-			plt.legend(fontsize='x-large')
-
-			for axis in ['top', 'bottom', 'left', 'right']:
-				ax.spines[axis].set_linewidth(1.6)
-				ax.spines[axis].set_color('dimgrey')
-			plt.show()
-
-			if save_fig:
-				fig.savefig(fig_name+self.timenow+'.png', format='png', dpi=600)
+		flatui = lines_fmt['color']
+		palette = sns.color_palette(flatui)
+		sns.set_palette(palette)
 
 
+		linewidth = lines_fmt['lw']
 
-	"""
-	Parameters:
+		labelsize = fontsize
+		ticksize = ticksize
 
-	figsize 	= tuple 	: 	Tuple of two integers for determining the figure size  (default =(9, 7))		 
-	lines_fmt 	= dict		: 	Dictionary for the formatting of lines i.e. 'color' and linewidth('lw')	 (default = {'color': ["#339966", "#cc0000"], 'lw': 3}
-	label 		= str		:	Set label inside the plot (default = 'ROC_curve')
-	fontsize 	= int 		: 	Set fontsize for the x and y labels  (default = 18)
-	ticksize 	= int 		:	Set fontsize for the x and y ticks   (default = 18)
-	fig_name 	= str  		: 	Name for the figure if want to save figure    (default = 'roc_plot')
-	save_fig 	= bool 		: 	Save Figure in the current directory if True    (default = False)
+		# mean_fpr = np.linspace(0, 1, 1000)
+		y_proba = clf_fit.predict_proba(X_test)[::,1]
+		fpr, tpr, _ = roc_curve(y_test, y_proba)
+		# auc = roc_auc_score(y_test, y_proba)
+		plt.legend(loc=4)
+		fig, ax = plt.subplots(figsize=figsize)
+		plt.rc('font', family='serif')
+		ax.plot(fpr, tpr, label=label, lw=linewidth, alpha=.8)
+		ax.plot(fpr, fpr, linestyle='--', lw=linewidth, label='Chance', alpha=.8)
 
-	"""
+		ax.set(xlim=[-0.02, 1.02], ylim=[-0.02, 1.02])
+		ax.legend(loc="lower right")
+		ax.set_xlabel('False positive rate', fontsize=labelsize)
+		ax.set_ylabel('True positive rate', fontsize=labelsize)
+		plt.xticks(fontsize=ticksize)
+		plt.yticks(fontsize=ticksize)
+
+		plt.legend(fontsize='x-large')
+
+		for axis in ['top', 'bottom', 'left', 'right']:
+			ax.spines[axis].set_linewidth(1.6)
+			ax.spines[axis].set_color('dimgrey')
+		plt.show()
+
+		if save_fig:
+			fig.savefig(fig_name+self.timenow+'.png', format='png', dpi=600)
+
