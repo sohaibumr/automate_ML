@@ -11,7 +11,7 @@ from clf_models_params import do_classification
 
 > Make an instance of class do_classification:
 ````
-clf = do_classification(inputs=features, target=Y, normalization='minmax', verbosity=0)
+clf = do_classification(inputs=features, target=target, normalization='minmax', verbosity=0)
 ````
 
 > Call and fit a machine learning model:
