@@ -34,15 +34,10 @@ clf.plot_roc()
 
 > __init__()
 ````
-data            = any     : Dataset for evaluating a model  (default = None)
+data            = any     : Dataset including features and target  (default = None)
 inputs          = any     :	Feature set (default = None)
-target          = any     : Target which you want to predict  (default = None)
-normalization   = any     : Method for normalizing the dataset (default = "None"
-predict_unknown = bool    : Set True if want to make prediction for 'unknown_data' (default = False)	
-unknown_data    = any     : Dataset to make prediction  (default = None)
-correlation     = bool    : Plots correlation heatmap if True (default = False)
-feature_imp     = bool    : Plots feature importance plot using Mutual information method (MI) if True (deafult = False)
-ROC_curve       = bool    : Plots roc curve if True (default = False)
+target          = any     : Target that needs to be predicted  (default = None)
+normalization   = any     : Method for the scaling of data (default = "None"
 verbosity       = integer : Degree for printing output messages in the terminal (default = 0, can be 0,1, or 2)
   
 ````  
@@ -60,9 +55,11 @@ return_dataset  = str     : Returns a csv file of training or test dataset (defa
 
 > make_prediction()
 ````
-prediction_data = bool : Dataset to make predictions; only if predict_unknown is True (default = 'test')
-save_csv        = bool : Whether to save a csv file of predictions or not (default = False)
-file_name       = str  : Name for the csv file
+prediction_data   = bool : Dataset to make predictions; only if predict_unknown is True (default = 'test')
+unknown_data      = any  : unknown dataset to evaluate the performance of the trained model. Only when prediction_data = 'unknown' (default = None)
+proba_prediction  = bool : Predicts the probabilities rather than the exact values as output if True (default = False)
+save_csv          = bool : Whether to save a csv file of predictions or not (default = False)
+file_name         = str  : Name for the csv file
 
 ````
 
