@@ -15,6 +15,7 @@ clf = do_classification(inputs=features, target=target, normalization='minmax', 
 ````
 
 > Call and fit a machine learning model:
+  In the following case Support Vector Classifier is used
 ````
 clf.Svc()
 clf.fit(test_size=0.20, random_state=12, cv=10, optimization='Grid', scoring='accuracy')
@@ -35,12 +36,34 @@ clf.plot_roc()
 > __init__()
 ````
 data            = any     : Dataset including features and target  (default = None)
-inputs          = any     :	Feature set (default = None)
+inputs          = any     : Feature set (default = None)
 target          = any     : Target that needs to be predicted  (default = None)
 normalization   = any     : Method for the scaling of data (default = "None"
 verbosity       = integer : Degree for printing output messages in the terminal (default = 0, can be 0,1, or 2)
   
 ````  
+
+> ML models
+ ````
+ Svc()
+ ExtraTrees()
+ ExtraTree()
+ LogisticReg()
+ CatBoost()
+ LGBM()
+ Bagging()
+ AdaBoost()
+ RandomForest()
+ KNeighbors()
+ RadiusNeighbor()
+ GradientBoosting()
+ DecisionTrees()
+ NUSvc()
+ SGDC()
+ LinearDA()
+ CalibratedCV()
+ Mlp()
+ ````
 
 > fit()
  ````
