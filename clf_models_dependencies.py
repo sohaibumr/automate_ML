@@ -41,3 +41,8 @@ from sklearn.preprocessing import MinMaxScaler
 from tabulate import tabulate
 from PIL import Image
 from sklearn.metrics import accuracy_score
+from sklearn.neural_network import MLPClassifier
+from skopt.space import Real, Categorical, Integer
+from sklearn.metrics import roc_curve, auc
+import scikitplot as skplt
+from sklearn import metrics
