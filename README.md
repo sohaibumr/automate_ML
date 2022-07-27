@@ -43,7 +43,7 @@ verbosity       = integer : Degree for printing output messages in the terminal 
   
 ````  
 
-> ML models
+> ML algorithms
  ````
  Svc()
  ExtraTrees()
