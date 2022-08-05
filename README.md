@@ -11,11 +11,11 @@ from clf_models_params import do_classification
 
 > Make an instance of class do_classification:
 ````
-clf = do_classification(inputs=features, target=target, normalization='minmax', verbosity=0)
+clf = do_classification(data=dataframe, inputs=[list of features], target= 'variable to predict', normalization='minmax', verbosity=0)
 ````
 
 > Call and fit a machine learning model:
-  In the following case Support Vector Classifier is used
+  In the following case Support Vector Classifier (Svc) is used
 ````
 clf.Svc()
 clf.fit(test_size=0.20, random_state=12, cv=10, optimization='Grid', scoring='accuracy')
