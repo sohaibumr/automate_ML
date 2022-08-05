@@ -1,5 +1,5 @@
 # ML_models for solving classification and regression problems
-  Machine learning models to solve classification and regression problems in a mechanized way.
+  Machine learning models to solve classification and regression problems in a mechanized way. The current code is only for solving classification problems. For      regression the code will soon be updated
   > Description of the parameters is provided below.
 
 ## How to use:
