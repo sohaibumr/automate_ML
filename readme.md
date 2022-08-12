@@ -7,7 +7,7 @@ Purposes of this repository are following:
 
 ## Installation
 
-You can simply install automate-ML by using pip:
+You can simply install automate-ML by using pip (https://pypi.org/project/automate-ML/):
 ````
 pip install automate-ML 
 ````
