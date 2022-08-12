@@ -55,44 +55,14 @@ clf.plot_feature_imp()
 clf.plot_roc_curve()
 clf.Confusion_matrix()
 ````
-## Parameters description:
+> Available ML algorithms 
 
-> __init__()
-
-The __init__ parameters for 'Classification' and 'Models' classes are same.
-
-````
-data            = Dataframe   :Dataset for evaluating a model  (default = None)
-inputs          = Dataframe   :Feature set (default = None)
-target          = Dataframe   :Target which you want to predict  (default = None)
-nan_values      = str         :Whether to 'impute' or 'remove' NaN value in the dataset. (default=None)	
-normalization   = str         :Method for normalizing the dataset (default = "None")
-test_size       = float       :Size od testing dataset (default = 0.20)
-random_state    = int         :random number for the reproducing the results (deafult = 315)
-return_dataset  = str         :Dataset to be returned as a csv file. (default = None)
-verbosity       = integer     :Degree for printing output messages in the terminal (default = 0, can be 0,1, or 2)
-
-````  
-
-> Available ML algorithms. <br /> 
 You can print out the list of available ML algorithms by following code:
 
  ````
  clf.model_names()
  ````
 
-For these models you can either use the default parameters that are used in this repository or you can pass a dictionary of your own hyperparameters. For hyperparameters detail of each model visit scikit-learn or the homepage of the corresponding model. <br />
-
-Example:
-
- ````
- clf.AdaBoost()
- ````
-OR
- ````
- clf.AdaBoost({'n_estimators': [10, 50, 100], 'learning_rate': [0.001, 0.04, 0.05, 0.09, 0.1], 'random_state':[315]})
- ````
- 
  ````
  AdaBoost()
  Bagging()
@@ -117,6 +87,39 @@ OR
  SGDC()
  
 ````
+For these models you can either use the default parameters that are used in this repository or you can pass a dictionary of your own hyperparameters. For hyperparameters detail of each model visit scikit-learn or the homepage of the corresponding model. <br />
+
+Example:
+
+ ````
+ clf.AdaBoost()
+ ````
+OR
+ ````
+ clf.AdaBoost({'n_estimators': [10, 50, 100], 'learning_rate': [0.001, 0.04, 0.05, 0.09, 0.1], 'random_state':[315]})
+ ````
+
+
+## Parameters description:
+
+> __init__()
+
+The __init__ parameters for 'Classification' and 'Models' classes are same.
+
+````
+data            = Dataframe   :Dataset for evaluating a model  (default = None)
+inputs          = Dataframe   :Feature set (default = None)
+target          = Dataframe   :Target which you want to predict  (default = None)
+nan_values      = str         :Whether to 'impute' or 'remove' NaN value in the dataset. (default=None)	
+normalization   = str         :Method for normalizing the dataset (default = "None")
+test_size       = float       :Size od testing dataset (default = 0.20)
+random_state    = int         :random number for the reproducing the results (deafult = 315)
+return_dataset  = str         :Dataset to be returned as a csv file. (default = None)
+verbosity       = integer     :Degree for printing output messages in the terminal (default = 0, can be 0,1, or 2)
+
+````  
+
+
 
 > fit()
 ````
