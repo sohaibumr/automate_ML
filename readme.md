@@ -19,7 +19,7 @@ https://github.com/sohaibunist/automate_ML.git
 ## How to use:
 
 
-> Make an instance:
+> Compare performance of various ML-models:
 
 First you can compare the performance of all the available ML models and then optimize the parameters for the best performing model.
 
