@@ -1,4 +1,4 @@
-# Automate-ML
+# automate-ML
 
 Simple and mechanized way to solve classification and regression problems. The current code is only for solving classification problems. For regression the code is under progress. <br /> <br />
 Purposes of this repository are following:
