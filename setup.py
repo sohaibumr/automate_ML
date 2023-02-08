@@ -34,7 +34,7 @@ setup(
     install_requires=min_requirements,
 
     classifiers=[
-        'Development Status :: 1 - Alpha',
+        'Development Status :: 3 - Alpha',
 
         'Intended Audience :: Science/Research',
         'Intended Audience :: Developers',
