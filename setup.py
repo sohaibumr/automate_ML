@@ -20,12 +20,12 @@ min_requirements = [
 setup(
 
     name='automate_ML',
-    version="1.0.1",
+    version="1.0.2",
 
     author='Sohaib Umer',
     author_email='sohaibfccu@gmail.com',
 
-    description='Platform to solve machine learning problems in a mechanized way',
+    description='A python module to solve machine learning problems in a mechanized way. The repository is able to preprocess the data and output the results in numerical as well as in the graphical form.',
     long_description='https://github.com/sohaibunist/automate_ML',
     long_description_content_type="text/markdown",
 
@@ -34,7 +34,7 @@ setup(
     install_requires=min_requirements,
 
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 1 - Alpha',
 
         'Intended Audience :: Science/Research',
         'Intended Audience :: Developers',
