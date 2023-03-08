@@ -20,7 +20,7 @@ min_requirements = [
 setup(
 
     name='automate_ML',
-    version="1.0.5",
+    version="1.0.3",
 
     author='Sohaib Umer',
     author_email='sohaibfccu@gmail.com',
