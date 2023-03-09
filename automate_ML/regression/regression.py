@@ -544,21 +544,7 @@ class Regression(Preprocessing):
 
 		print("{} =".format(scoring) + str(round(Test_score, 6)))
 
-
-	"""
-	Parameters:
-
-	test_size    		= float		:	For specifying test fraction for dataset (default = 0.20)
-	random_no    		= any		: 	Random number for reproducing the results    (default = None)
-	optimization 		= str		:	Method for searching the best hyperparameters for the model  (default = 'Grid'); Available methods are = 'Grid', 'Bayesian' and 'Randomized'
-	cv 			 		= integer	:	cross-validation
-	scoring 	 		= str  		:	Method for the evaluation of model: (default = 'r2'); Available methods are = 'explained_variance', 'max_error', 'neg_mean_absolute_error', 'neg_mean_squared_error',
-						   				'neg_root_mean_squared_error', 'neg_mean_squared_log_error', 'neg_median_absolute_error', 'r2',
-						   				'neg_mean_poisson_deviance', 'neg_mean_gamma_deviance', 'neg_mean_absolute_percentage_error'.
-	return_dataset   	= str		:   Returns a csv file of training or test dataset (default = None); Available = 'train' or 'test'.
-
-	"""
-
+		
 	def predict(self, prediction_data='test', unknown_data=None, save_csv=False, file_name= 'predicted_data'):
 		global df, unknown_prediction, test_prediction, train_prediction, df_unknown
 
@@ -633,15 +619,6 @@ class Regression(Preprocessing):
 			else:
 				pass
 
-	"""
-	Parameters:
-
-	prediction_data		= bool		:	Dataset to make predictions; only if predict_unknown is True (default = 'test')
-	unknown_data		= Dataframe	:	Unknown dataset for predictions; required when prediction_data is 'unknown' (default = None)
-	save_csv	 		= bool		:	Whether to save a csv file of predictions or not (default = False)
-	file_name	 		= str		:	Name for the csv file
-
-	"""
 
 ##############################################******Visualization********###############################################
 
@@ -695,22 +672,7 @@ class Regression(Preprocessing):
 		if save_fig:
 			corr_fig.figure.savefig(fig_name + self.timenow + '.png', format='png', dpi=dpi)
 
-	"""
-	Parameters:
-
-	method 		= str  	: 	Method for plottting correlation matrix (default = 'pearson') Available methods = 'perason', 'kendall', or 'spearman'  
-	matrix_type	= bool 	:	Type of correlation-matrix for plotting  (default = upper); Available = 'full', 'upper', 'lower'
-	annot		= bool 	:	Whether to show the correlation with numbers or not  (default = False)
-	cmap 		= any  	: 	Color map for plot  (default = coolwarm)
-	vmin		= float	:	Minimum value for color bar (default = -1.0)
-	vmax		= float	:	Maximum value for color bar (default =  1.0)
-	figsize 	= tuple : 	Tuple of two integers for determining the figure size    (default =(16, 12))
-	fontsize 	= int  	:	Font size of color-bar and x, y axis   (default =14)
-	save_fig 	= bool 	: 	save plot in the current working directory if True  (default = False)
-	save_csv 	= bool 	: 	save a csv file if True  (default = False)
-	figname 	= str   :	name of fig if save_fig is True  (default = "Correlation_plot.png")
-
-	"""
+			
 
 	def plot_feature_imp(self, kind="barh", random_no=None, figsize=(22, 16), fontsize=20, color='#ff8000', lw=5.0,
 						 save_fig=False, fig_name="Feature_imp_Plot(MI).png", dpi=600):
@@ -742,20 +704,6 @@ class Regression(Preprocessing):
 		if save_fig:
 			imp_fig.figure.savefig(fig_name + self.timenow + '.png', format='png', dpi=dpi)
 
-		"""
-		Parameters:
-
-		kind 		= str		: 	Type of plot: (default = 'barh'); Available types = 'barh', 'bar', 'pie', 'line', 'area'  
-		random_no 	= any		:	Random number to reproduce results (default = None)
-		figsize 	= tuple  	: 	Tuple of two integers for determining the figure size (default =(22, 16))		 
-		fontsize 	= int  		:	Font size of color-bar and x, y axis (default =20)
-		color 		= str  		: 	Color for plot    (default = '#ff8000')	
-		lw 			= float 	: 	Width of bars if kind == 'bar' or 'barh' (default = 5.0)
-		save_fig 	= bool 		: 	Save plot in the current working directory if True (default = False)
-		figname 	= str   	:	Name of fig if save_fig is True (default = "Feature_imp_Plot(MI).png")
-
-		"""
-
 
 	def plot_scatter(self, plot_for="test", facecolor='red', alpha=0.5, marker='o', xlabel='True', ylabel='Predicted', title='Regression_plot',
 					 save_fig=True, fig_name="Scatter_plot", dpi=600):
@@ -782,21 +730,6 @@ class Regression(Preprocessing):
 		if save_fig:
 			ax.figure.savefig(fig_name + self.timenow + '.png', format='png', dpi=dpi)
 
-	"""
-	Parameters:
-	facecolor='red', alpha=0.5, xlabel='True', ylabel='Predicted', title='Regression_plot',
-					 save_fig=True, dpi=600
-					 
-	return_train = bool 	: Scatter plot for the training dataset 
-	facecolor	 = str		:	
-	alpha		 = float	: Determine the intensity of colors
-	xlabel		 = bool		: Label for x-axis
-	ylabel		 = bool		: Label for y-axis
-	title		 = str		: Title of the figure
-	save_fig	 = bool		: Name of the file to save figure
-	dpi			 = int		: Determine the quality of the figure to save
-		
-	"""
 
 	def save_data(self, filename=None, verbosity=0):
 		global save_content
