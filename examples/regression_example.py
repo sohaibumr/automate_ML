@@ -11,7 +11,7 @@ y = 'price'
 
 reg = Regression(data=data, inputs=X, target=y, problem='Regression', random_state=300)
 reg.Model(model_name='ExtraTrees', random_state=300)
-reg.fit(optimization='Bayesian', num_iter=3, scoring='r2')
+reg.fit(optimization='Random', num_iter=20, scoring='r2')
 reg.predict(prediction_data='test', save_csv=False)
 reg.plot_scatter(plot_for='test')
 reg.plot_correlation()
