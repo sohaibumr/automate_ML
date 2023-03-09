@@ -9,7 +9,7 @@ X = ['carat', 'cut', 'color', 'clarity', 'depth', 'table']
 y = 'price'
 
 
-reg = Regression(data=data, inputs=X, target=y, problem='Regression', random_state=300)
+reg = Regression(data=data, inputs=X, target=y, problem='Regression', normalization='zscore', random_state=300)
 reg.Model(model_name='ExtraTrees', random_state=300)
 reg.fit(optimization='Random', num_iter=20, scoring='r2')
 reg.predict(prediction_data='test', save_csv=False)
