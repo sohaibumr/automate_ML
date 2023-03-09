@@ -19,7 +19,7 @@ git clone https://github.com/sohaibunist/automate_ML.git
 
 ## How to use:
 
-The usage of this package is explained through different examples (Check examples folder).
+**The usage of this package is explained through different examples (Check examples folder).**
 
 ````
 from automate_ML import Classification
