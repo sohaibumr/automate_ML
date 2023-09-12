@@ -30,7 +30,7 @@ clf = Classification(data=dataframe, inputs=[list of features], target='variable
 
 > Call a machine learning model
 ````
-clf.AdaBoost()
+clf.Model(model_name='ExtraTrees', random_state=300)
 ````
 For the models either the default parameters can be used or a dictionary of parameters can be passed. hyperparameters detail of each model visit scikit-learn or the homepage of the corresponding model. <br />
 
