@@ -35,7 +35,8 @@ clf.Model(model_name='ExtraTrees', random_state=300)
 For the models either the default parameters can be used or a dictionary of parameters can be passed. hyperparameters detail of each model visit scikit-learn or the homepage of the corresponding model. <br />
 
 ````
-clf.AdaBoost({'n_estimators':100, 'learning_rate': 0.01, 'random_state':315})
+clf.Model(model_name='ExtraTrees', params={'n_estimators':100, 'learning_rate': 0.01}, random_state=300)
+
 ````
 Call fit function for this model.
 ````
