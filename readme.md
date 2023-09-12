@@ -2,7 +2,7 @@
 
 Simple and mechanized way to solve classification and regression problems. This python package is able to preprocess the data and output the results in the numerical as well as in the graphical form. <br /> <br />
 Objectives of this repository are following:
-*  Provide an efficient and easy way to perform the Machine learning tasks.
+*  Provide an efficient and easy way to perform the Machine learning tasks (Classification and Regression).
 *  Organize the unstructured data through preprocessing.
 *  Provide a uniform interface for optimizing hyper-parameters through skopt based bayesian, and sklearn based grid and random search.
 *  Visualization of results with some important graphs.
