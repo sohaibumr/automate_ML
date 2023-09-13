@@ -35,8 +35,13 @@ clf.Model(model_name='ExtraTrees', random_state=300)
 For the models either the default parameters can be used or a dictionary of parameters can be passed. hyperparameters detail of each model visit scikit-learn or the homepage of the corresponding model. <br />
 
 ````
-clf.Model(model_name='ExtraTrees', params={'n_estimators': list(range(50, 500)),
-'max_depth': list(range(2, 11)), 'min_samples_split': list(range(0, 11))}, random_state=300)
+clf.Model(model_name='ExtraTrees',
+        params={
+      'n_estimators': list(range(50, 500)),
+        'max_depth': list(range(2, 11)),
+        'min_samples_split': list(range(0, 11))
+            },
+         random_state=300)
 
 ````
 Call fit function for this model.
