@@ -34,7 +34,7 @@ clf = Classification(data=dataframe, inputs=[list of features], target='variable
 ````
 clf.Model(model_name='ExtraTrees', random_state=300)
 ````
-For the models either the default parameters can be used or a dictionary of parameters can be passed. hyperparameters detail of each model visit scikit-learn or the homepage of the corresponding model. <br />
+For the models either the default parameters can be used or a dictionary of parameters can be passed. For hyperparameters detail of each model visit scikit-learn or the homepage of the corresponding model. <br />
 
 ````
 clf.Model(model_name='ExtraTrees',
