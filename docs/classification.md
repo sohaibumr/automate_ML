@@ -2,11 +2,8 @@
 ### def Model(model_name=None, params=None, proba=False, random_state=None)
 
 model_name          = str		  : 	Name of the machine learning algorithm to use (default = None)
-
 params              = dict		:	  Set of parameters for machine learning algrorithm (default = None)
-
 proba               = bool		: 	Only needed for 'NuSVC' and 'SVC' when predicting probability (default = False)
-
 random_state        = int		  :	  Random number for reproducing the results (default = None)
 
 
