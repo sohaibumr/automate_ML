@@ -10,15 +10,12 @@ random_state  = int   :  Random number for reproducing the results (default = No
 
 ### def fit(self, optimization='Bayesian', num_iter=20, cv=10, scoring='roc_auc')
 
-"""
+````
 optimization 		= str		:	Method for searching the best hyperparameters for the ML model (default = 'Grid', other available methods are                                 'Randomized' and 'Bayesian')
-
 num_iter    		= int		:	Number of iterations to run for hyperparameter optimization (default = 20).
-
 cv 			 		    = int		:	cross-validation (default = 10)
-
 scoring 	 		  = str  	:	Method for the evaluation of model: (default = 'roc_auc')
-"""
+````
 
 ### def predict(self, prediction_data='test', unknown_data=None, proba_prediction=False, save_csv=False, file_name='predicted_data')
 
