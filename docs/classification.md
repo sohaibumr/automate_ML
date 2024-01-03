@@ -1,5 +1,5 @@
 
-### def Model(model_name=None, params=None, proba=False, random_state=None)
+#### def Model(model_name=None, params=None, proba=False, random_state=None)
 
 """
 model_name          = str		  : 	Name of the machine learning algorithm to use (default = None)
