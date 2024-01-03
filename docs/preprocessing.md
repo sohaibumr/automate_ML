@@ -1,6 +1,8 @@
 
 ### class Preprocessing:
 
+This class performs the preprocessing on the provided dataset i.e. dealing with nan values, normalization of dataset, split the data into train and test subsets and so on.
+
 #### def __init__(self, data=None, inputs=None, target=None, nan_values=None, normalization=None, test_size=0.20, random_state=None, label_encode_inputs=True, label_encode_target=False, problem=None, raise_warnings=True, verbosity=0)
 
 ````
@@ -16,7 +18,6 @@ label_encode_target  = bool       :	Convert categorical data into numerical data
 problem              = str        :	The type of problem to solve (i.e 'Classification', or 'Regression')
 raise_warnings       = bool       :	Whether to raise any warnings or not (default = True)
 verbosity            = integer    :	Degree for printing output messages in the terminal (default = 0, possible values are 0,1, or 2)
-
 ````
 
 #### def preprocessed_data(self, save_csv=True, filename='Preprocessed_data'):
@@ -24,7 +25,6 @@ verbosity            = integer    :	Degree for printing output messages in the t
 ````
 save_csv      = bool :  Whether to save the preprocessed data or not  (default = True)
 filename      = str  :  Name of the file (default = None)
-
 ````
 
 #### def input_data(self, save_csv=True, filename='Input_data')
@@ -32,14 +32,12 @@ filename      = str  :  Name of the file (default = None)
 ````
 save_csv      = bool :  Whether to save the inputs data or not  (default = True)
 filename      = str  :  Name of the file (default = None)
-
 ````
 #### def target_data(self, save_csv=True, filename='Input_data'):
 
 ````
 save_csv      = bool :  Whether to save the target data or not  (default = True)
 filename      = str  :  Name of the file (default = None)
-
 ````
 #### def train_test_data()
 
