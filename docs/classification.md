@@ -1,5 +1,5 @@
 
-### def Model(model_name=None, params=None, proba=False, random_state=None)
+#### def Model(model_name=None, params=None, proba=False, random_state=None)
 
 ````
 model_name    = str   :  Name of the machine learning algorithm to use (default = None)
@@ -8,7 +8,7 @@ proba         = bool  :  Only needed for 'NuSVC' and 'SVC' when predicting proba
 random_state  = int   :  Random number for reproducing the results (default = None)
 ````
 
-### def fit(self, optimization='Bayesian', num_iter=20, cv=10, scoring='roc_auc')
+#### def fit(self, optimization='Bayesian', num_iter=20, cv=10, scoring='roc_auc')
 
 ````
 optimization  = str  :	Method for searching the best hyperparameters for the ML model (default = 'Grid', other available methods are                                 'Randomized' and 'Bayesian')
@@ -17,21 +17,19 @@ cv            = int  :	cross-validation (default = 10)
 scoring       = str  :	Method for the evaluation of model: (default = 'roc_auc')
 ````
 
-### def predict(self, prediction_data='test', unknown_data=None, proba_prediction=False, save_csv=False, file_name='predicted_data')
+#### def predict(self, prediction_data='test', unknown_data=None, proba_prediction=False, save_csv=False, file_name='predicted_data')
 
-"""
-prediction_data		= bool		  :	Dataset to make predictions (default = 'test')
-
-unknown_data		  = Dataframe	:	Unknown dataset for predictions; required when prediction_data is 
+````
+prediction_data  = bool       :	Dataset to make predictions (default = 'test')
+unknown_data     = Dataframe  :	Unknown dataset for predictions; required when prediction_data is 
                                     'unknown' (default = None)
                                     
-proba_prediction	= bool		  :	Predict probabilities rather than the exact values for the target if set 
-                                    True (default = False)
-                                    
-save_csv	 		    = bool		  :	Save a csv file of predictions if set True (default = False)
+proba_prediction = bool       :	Predict probabilities rather than the exact values for the target if set 
+                                    True (default = False)                            
+save_csv         = bool       :	Save a csv file of predictions if set True (default = False)
 
-file_name	 		    = str		    :	Name for the csv file (default = 'predicted_data')
-"""
+file_name          = str      :	Name for the csv file (default = 'predicted_data')
+````
 
 ### def Confusion_matrix(self, show_plot=True, annot=True, cmap='Blues', figsize=(12, 8), fontsize=14, save_fig=False, fig_name="Confusion_matrix.png", xlabel='Predicted Values', ylabel='Actual Values', title='Seaborn Confusion Matrix with labels\n', dpi=300)
 
