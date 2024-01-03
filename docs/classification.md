@@ -1,6 +1,8 @@
 
 #### def Model(model_name=None, params=None, proba=False, random_state=None)
 
+Select a ML model for classification
+
 ````
 model_name    = str   :  Name of the machine learning algorithm to use (default = None)
 params        = dict  :  Set of parameters for machine learning algrorithm (default = None)
@@ -9,6 +11,8 @@ random_state  = int   :  Random number for reproducing the results (default = No
 ````
 
 #### def fit(self, optimization='Bayesian', num_iter=20, cv=10, scoring='roc_auc')
+
+Fit the ML model on your dataset
 
 ````
 optimization  = str  :	Method for searching the best hyperparameters for the ML model (default = 'Grid', other available methods are 'Randomized' and 'Bayesian')
@@ -19,6 +23,8 @@ scoring       = str  :	Method for the evaluation of model: (default = 'roc_auc')
 
 #### def predict(self, prediction_data='test', unknown_data=None, proba_prediction=False, save_csv=False, file_name='predicted_data')
 
+Make predictions for new datasets using the trained ML model
+
 ````
 prediction_data  = bool       :	Dataset to make predictions (default = 'test'). Other available options are 'train' and 'unknown'.
 unknown_data     = Dataframe  :	Unknown dataset for predictions; required when prediction_data is 'unknown' (default = None)
@@ -28,6 +34,8 @@ file_name        = str        :	Name for the csv file (default = 'predicted_data
 ````
 
 #### def Confusion_matrix(self, show_plot=True, annot=True, cmap='Blues', figsize=(12, 8), fontsize=14, save_fig=False, fig_name="Confusion_matrix.png", xlabel='Predicted Values', ylabel='Actual Values', title='Seaborn Confusion Matrix with labels\n', dpi=300)
+
+Get confusion matrix
 
 ````
 show_plot  = bool  :  Whether to show the plot or not (default = True).
@@ -44,6 +52,8 @@ dpi        = str   :  Quality of the figure  (default = 600)
 ````
 
 #### def plot_correlation(self, method='pearson', matrix_type='upper', annot=False, cmap='coolwarm', vmin=-1.0, vmax=1.0, figsize=(12, 8), fontsize=14, save_fig=False, save_csv=False, fig_name="Correlation_plot.png", dpi=300):
+
+Get Correlation values between inputs.
 
 ````
 method        = str    :  Method for plottting correlation matrix (default = 'pearson'). Other available methods are 'perason', 'kendall', or 'spearman'  
@@ -62,6 +72,8 @@ dpi           = str    :  Quality of the figure  (default = 600)
 
 #### def plot_feature_imp(self, kind="barh", random_no=None, figsize=(12, 8), fontsize=20, color='#ff8000', lw=5.0, save_fig=False, fig_name="Feature_imp_Plot(MI).png", dpi=300):
 
+Plot importance of each selected features towards the prediction of target. It uses mutual importance function from Scikit-learn.
+
 ````
 kind       = str    :   Type of plot: (default = 'barh'); Available types = 'barh', 'bar', 'pie', 'line', 'area'  
 random_no  = any    :	  Random number to reproduce results (default = None)
@@ -75,6 +87,8 @@ figname    = str    :	  Name of fig if save_fig is True (default = "Feature_imp_
 ````
 
 #### def plot_roc_curve(self, plot_for='test', figsize=(9, 7), lines_fmt=None, label='ROC_curve', fontsize=18, ticksize=18, xlabel='False positive rate', ylabel='True positive rate', legend='lower right', alpha=0.8, save_fig=False, fig_name='roc_plot', dpi=300):
+
+Plot an roc_curve for the defined dataset.
 
 ````
 plot_for    = str    :   Determines whether to plot results for training or testing dataset (default='test')     
@@ -95,7 +109,9 @@ dpi         = int    :   Quality of the image (default=600)
 
 #### def save_data(self, filename=None, verbosity=2)
 
+Save outputs as a text file.
+
 ````
-file_name 	= str  		: 	Name for the file (default='classification_data')
-verbosity   = int     :   Quantity of the data you want to save (default=2). Other options are 0 and 1.
+file_name  = str  : 	Name for the file (default='classification_data')
+verbosity  = int  :   Quantity of the data you want to save (default=2). Other options are 0 and 1.
 ````
