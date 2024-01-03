@@ -60,5 +60,35 @@ figname       = str    :  Name of fig if save_fig is True  (default = "Correlati
 dpi           = str    :  Quality of the figure  (default = 600)
 ````
 
+#### def plot_feature_imp(self, kind="barh", random_no=None, figsize=(12, 8), fontsize=20, color='#ff8000', lw=5.0, save_fig=False, fig_name="Feature_imp_Plot(MI).png", dpi=300):
 
+````
+kind       = str    :   Type of plot: (default = 'barh'); Available types = 'barh', 'bar', 'pie', 'line', 'area'  
+random_no  = any    :	  Random number to reproduce results (default = None)
+figsize    = tuple  :   Tuple of two integers for determining the figure size (default =(22, 16))		 
+fontsize   = int    :	  Font size of color-bar and x, y axis (default =20)
+color      = str    :   Color for plot    (default = '#ff8000')	
+lw         = float  :   Width of bars if kind == 'bar' or 'barh' (default = 5.0)
+save_fig   = bool   :   Save plot in the current working directory if True (default = False)
+figname    = str    :	  Name of fig if save_fig is True (default = "Feature_imp_Plot(MI).png")
 
+````
+
+#### def plot_roc_curve(self, plot_for='test', figsize=(9, 7), lines_fmt=None, label='ROC_curve', fontsize=18, ticksize=18, xlabel='False positive rate', ylabel='True positive rate', legend='lower right', alpha=0.8, save_fig=False, fig_name='roc_plot', dpi=300):
+
+````
+plot_for    = str    :   Determines whether to plot results for training or testing dataset (default='test')     
+figsize     = tuple  : 	 Tuple of two integers for determining the figure size  (default=(9, 7))		 
+lines_fmt   = dict   : 	 Dictionary for the formatting of lines i.e. 'color' and linewidth('lw') (default={'color': ["#339966", "#cc0000"], 'lw': 3}
+label       = str    :	 Set label inside the plot (default ='ROC_curve')
+fontsize    = int    : 	 Set fontsize for the x and y labels  (default=18)
+xlabel      = str    :   Label for x-axis (default=False positive rate)
+ylabel      = str    :   Label for y-axis (default=True positive rate)
+legend      = str    :   Text to right in the legend (default='lower right')
+alpha       = float  :   Intensity of colors (default=0.8)
+ticksize    = int    :	 Set fontsize for the x and y ticks   (default=18)
+save_fig    = bool   :   Save Figure in the current directory if set True    (default=False)
+fig_name    = str    : 	 Name for the figure     (default='roc_plot')
+dpi         = int    :   Quality of the image (default=600)
+
+````
