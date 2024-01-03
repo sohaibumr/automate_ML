@@ -72,7 +72,7 @@ dpi           = str    :  Quality of the figure  (default = 600)
 
 #### def plot_feature_imp(self, kind="barh", random_no=None, figsize=(12, 8), fontsize=20, color='#ff8000', lw=5.0, save_fig=False, fig_name="Feature_imp_Plot(MI).png", dpi=300):
 
-Plot importance of each selected features towards the prediction of target. It uses mutual importance function from Scikit-learn.
+Plot importance of each selected feature towards the prediction of the target. It uses mutual importance function of Scikit-learn.
 
 ````
 kind       = str    :   Type of plot: (default = 'barh'); Available types = 'barh', 'bar', 'pie', 'line', 'area'  
