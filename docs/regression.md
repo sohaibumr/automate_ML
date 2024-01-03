@@ -1,6 +1,6 @@
-### class Classification(Preprocessing)
+### class Regression(Preprocessing)
 
-Classification class inherit the Preprocessing class which means it has the same parameters as the Preprocessing class.
+Regression class inherits the Preprocessing class which means it has the same init parameters as the Preprocessing class.
 
 #### def __init__(self, data=None, inputs=None, target=None, nan_values=None, normalization=None, test_size=0.20, random_state=None, label_encode_inputs=True, label_encode_target=False, problem=None, raise_warnings=True, verbosity=0)
 
@@ -23,7 +23,7 @@ verbosity            = integer    :	Degree for printing output messages in the t
 
 #### def Model(model_name=None, params=None, proba=False, random_state=None)
 
-Select a ML model for classification
+Select a ML model for regression
 
 ````
 model_name    = str   :  Name of the machine learning algorithm to use (default = None)
@@ -53,24 +53,6 @@ unknown_data     = Dataframe  :	Unknown dataset for predictions; required when p
 proba_prediction = bool       :	Predict probabilities rather than the exact values for the target if set True (default = False)          
 save_csv         = bool       :	Save a csv file of predictions if set True (default = False)
 file_name        = str        :	Name for the csv file (default = 'predicted_data')
-````
-
-#### def Confusion_matrix(self, show_plot=True, annot=True, cmap='Blues', figsize=(12, 8), fontsize=14, save_fig=False, fig_name="Confusion_matrix.png", xlabel='Predicted Values', ylabel='Actual Values', title='Seaborn Confusion Matrix with labels\n', dpi=300)
-
-Get confusion matrix
-
-````
-show_plot  = bool  :  Whether to show the plot or not (default = True).
-annot      = bool  :  Print the confusion matrix values inside the heatmap if set True  (default = False)
-cmap       = any   :  Color map for plot  (default = 'Blues')
-figsize    = tuple :  Tuple of two integers for determining the figure size    (default =(16, 12))
-fontsize   = int   :  Font size of color-bar and x, y axis   (default =14)
-save_fig   = bool  :  Save plot in the current working directory if True  (default = False)
-figname    = str   :  Name of fig if save_fig is True  (default = "Confusion_matrix.png")
-xlabel     = str   :  Title for x-axis  (default = "Predicted Values")
-ylabel     = str   :  Title for y-axis  (default = "Actual Values")
-title      = str   :  Title for the figure  (default = "Seaborn Confusion Matrix with labels")
-dpi        = str   :  Quality of the figure  (default = 600)
 ````
 
 #### def plot_correlation(self, method='pearson', matrix_type='upper', annot=False, cmap='coolwarm', vmin=-1.0, vmax=1.0, figsize=(12, 8), fontsize=14, save_fig=False, save_csv=False, fig_name="Correlation_plot.png", dpi=300):
@@ -108,25 +90,20 @@ figname    = str    :	  Name of fig if save_fig is True (default = "Feature_imp_
 
 ````
 
-#### def plot_roc_curve(self, plot_for='test', figsize=(9, 7), lines_fmt=None, label='ROC_curve', fontsize=18, ticksize=18, xlabel='False positive rate', ylabel='True positive rate', legend='lower right', alpha=0.8, save_fig=False, fig_name='roc_plot', dpi=300):
+#### def plot_scatter(self, plot_for="test", facecolor='red', alpha=0.5, marker='o', xlabel='True', ylabel='Predicted', title='Regression_plot', save_fig=True, fig_name="Scatter_plot", dpi=300)
 
-Plot an roc_curve for the defined dataset.
+Plot a scatter diagram for the defined dataset.
 
 ````
-plot_for    = str    :   Determines whether to plot results for training or testing dataset (default='test')     
-figsize     = tuple  : 	 Tuple of two integers for determining the figure size  (default=(9, 7))		 
-lines_fmt   = dict   : 	 Dictionary for the formatting of lines i.e. 'color' and linewidth('lw') (default={'color': ["#339966", "#cc0000"], 'lw': 3}
-label       = str    :	 Set label inside the plot (default ='ROC_curve')
-fontsize    = int    : 	 Set fontsize for the x and y labels  (default=18)
-xlabel      = str    :   Label for x-axis (default=False positive rate)
-ylabel      = str    :   Label for y-axis (default=True positive rate)
-legend      = str    :   Text to right in the legend (default='lower right')
-alpha       = float  :   Intensity of colors (default=0.8)
-ticksize    = int    :	 Set fontsize for the x and y ticks   (default=18)
-save_fig    = bool   :   Save Figure in the current directory if set True    (default=False)
-fig_name    = str    : 	 Name for the figure     (default='roc_plot')
-dpi         = int    :   Quality of the image (default=600)
-
+plot_for    = str    :   Determines whether to plot results for training or testing dataset (default='test')
+facecolor   = str    :	 Set color for the marker
+alpha       = float  :   Determine the intensity of colors
+marker      = str    :   shape of the points in the figure
+xlabel      = bool   :   Label for x-axis
+ylabel      = bool   :   Label for y-axis
+title       = str    :   Title of the figure
+save_fig    = bool   :   Name of the file to save figure
+dpi         = int    :   Determine the quality of the figure to save
 ````
 
 #### def save_data(self, filename=None, verbosity=2)
