@@ -22,15 +22,25 @@ verbosity            = integer    :	Degree for printing output messages in the t
 #### def preprocessed_data(self, save_csv=True, filename='Preprocessed_data'):
 
 ````
-save_csv               = bool :  Whether to save the preprocessed data or not  (default = True)
-filename               = str  :  Name of the file (default = None)
+save_csv      = bool :  Whether to save the preprocessed data or not  (default = True)
+filename      = str  :  Name of the file (default = None)
 
 ````
 
 #### def input_data(self, save_csv=True, filename='Input_data')
 
 ````
-save_csv               = bool :  Whether to save the preprocessed data or not  (default = True)
-filename               = str  :  Name of the file (default = None)
+save_csv      = bool :  Whether to save the inputs data or not  (default = True)
+filename      = str  :  Name of the file (default = None)
 
 ````
+#### def target_data(self, save_csv=True, filename='Input_data'):
+
+````
+save_csv      = bool :  Whether to save the target data or not  (default = True)
+filename      = str  :  Name of the file (default = None)
+
+````
+#### def train_test_data()
+
+Return X_train, X_test, y_train, y_test
