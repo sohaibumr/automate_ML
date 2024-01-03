@@ -1,3 +1,6 @@
+### class Classification(Preprocessing)
+
+Classification class inherit the Preprocessing class which means it has the same parameters as the Preprocessing class.
 
 #### def Model(model_name=None, params=None, proba=False, random_state=None)
 
