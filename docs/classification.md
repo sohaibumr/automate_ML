@@ -47,21 +47,21 @@ title      = str   :	  Title for the figure  (default = "Seaborn Confusion Matri
 dpi        = str   :	  Quality of the figure  (default = 600)
 ````
 
-### def plot_correlation(self, method='pearson', matrix_type='upper', annot=False, cmap='coolwarm', vmin=-1.0, vmax=1.0, figsize=(12, 8), fontsize=14, save_fig=False, save_csv=False, fig_name="Correlation_plot.png", dpi=300):
+#### def plot_correlation(self, method='pearson', matrix_type='upper', annot=False, cmap='coolwarm', vmin=-1.0, vmax=1.0, figsize=(12, 8), fontsize=14, save_fig=False, save_csv=False, fig_name="Correlation_plot.png", dpi=300):
 
 ````
-method        = str: 	Method for plottting correlation matrix (default = 'pearson'). Other available methods are 'perason', 'kendall',                           or 'spearman'  
-matrix_type   = bool  :	  Type of correlation-matrix for plotting  (default = upper); Available = 'full', 'upper', 'lower'
-annot         = bool  :	  Print the correlation values in the heatmap if set True  (default = False)
-cmap          = any  	: 	Color map for plot  (default = coolwarm)
-vmin          = float	:	  Minimum value for color bar (default = -1.0)
-vmax          = float	:	  Maximum value for color bar (default =  1.0)
-figsize       = tuple : 	Tuple of two integers for determining the figure size    (default =(16, 12))
-fontsize      = int  	:	  Font size of color-bar and x, y axis   (default =14)
-save_fig      = bool 	: 	Save plot in the current working directory if True  (default = False)
-save_csv      = bool 	: 	Save a csv file if True  (default = False)
-figname       = str   :	  Name of fig if save_fig is True  (default = "Correlation_plot.png")
-dpi           = str   :	  Quality of the figure  (default = 600)
+method        = str    :  Method for plottting correlation matrix (default = 'pearson'). Other available methods are 'perason', 'kendall',                           or 'spearman'  
+matrix_type   = bool   :	  Type of correlation-matrix for plotting  (default = upper); Available = 'full', 'upper', 'lower'
+annot         = bool   :	  Print the correlation values in the heatmap if set True  (default = False)
+cmap          = any    : 	Color map for plot  (default = coolwarm)
+vmin          = float  :	  Minimum value for color bar (default = -1.0)
+vmax          = float  :	  Maximum value for color bar (default =  1.0)
+figsize       = tuple  : 	Tuple of two integers for determining the figure size    (default =(16, 12))
+fontsize      = int    :	  Font size of color-bar and x, y axis   (default =14)
+save_fig      = bool   : 	Save plot in the current working directory if True  (default = False)
+save_csv      = bool   : 	Save a csv file if True  (default = False)
+figname       = str    :	  Name of fig if save_fig is True  (default = "Correlation_plot.png")
+dpi           = str    :	  Quality of the figure  (default = 600)
 ````
 
 
