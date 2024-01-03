@@ -21,10 +21,8 @@ scoring       = str  :	Method for the evaluation of model: (default = 'roc_auc')
 
 ````
 prediction_data  = bool       :	Dataset to make predictions (default = 'test')
-unknown_data     = Dataframe  :	Unknown dataset for predictions; required when prediction_data is 
-                                    'unknown' (default = None)
-proba_prediction = bool       :	Predict probabilities rather than the exact values for the target if set 
-                                    True (default = False)                            
+unknown_data     = Dataframe  :	Unknown dataset for predictions; required when prediction_data is 'unknown' (default = None)
+proba_prediction = bool       :	Predict probabilities rather than the exact values for the target if set True (default = False)          
 save_csv         = bool       :	Save a csv file of predictions if set True (default = False)
 file_name        = str        :	Name for the csv file (default = 'predicted_data')
 ````
