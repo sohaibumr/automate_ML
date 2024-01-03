@@ -18,3 +18,19 @@ raise_warnings       = bool       :	Whether to raise any warnings or not (defaul
 verbosity            = integer    :	Degree for printing output messages in the terminal (default = 0, possible values are 0,1, or 2)
 
 ````
+
+#### def preprocessed_data(self, save_csv=True, filename='Preprocessed_data'):
+
+````
+save_csv               = bool :  Whether to save the preprocessed data or not  (default = True)
+filename               = str  :  Name of the file (default = None)
+
+````
+
+#### def input_data(self, save_csv=True, filename='Input_data')
+
+````
+save_csv               = bool :  Whether to save the preprocessed data or not  (default = True)
+filename               = str  :  Name of the file (default = None)
+
+````
