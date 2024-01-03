@@ -1,7 +1,7 @@
 
 ### class Preprocessing:
 
-This class performs the preprocessing on the provided dataset i.e. dealing with nan values, normalization of dataset, split the data into train and test subsets and so on.
+This class performs the preprocessing on the provided dataset i.e. deal with nan values, normalization of dataset, split the data into train and test subsets and so on.
 
 #### def __init__(self, data=None, inputs=None, target=None, nan_values=None, normalization=None, test_size=0.20, random_state=None, label_encode_inputs=True, label_encode_target=False, problem=None, raise_warnings=True, verbosity=0)
 
