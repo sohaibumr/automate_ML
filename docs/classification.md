@@ -92,3 +92,10 @@ fig_name    = str    : 	 Name for the figure     (default='roc_plot')
 dpi         = int    :   Quality of the image (default=600)
 
 ````
+
+#### def save_data(self, filename=None, verbosity=2)
+
+````
+file_name 	= str  		: 	Name for the file (default='classification_data')
+verbosity   = int     :   Quantity of the data you want to save (default=2). Other options are 0 and 1.
+````
