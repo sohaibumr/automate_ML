@@ -111,7 +111,7 @@ dpi         = int    :   Determine the quality of the figure to save
 Save outputs as a text file.
 
 ````
-file_name  = str  : 	Name for the file (default='classification_data')
-verbosity  = int  :   Quantity of the data you want to save (default=2). Other options are 0 and 1.
+file_name  = str  :  Name for the file (default='classification_data')
+verbosity  = int  :  Quantity of the data you want to save (default=2). Other options are 0 and 1.
 ````
 
