@@ -1,6 +1,6 @@
 ### class Classification(Preprocessing)
 
-Classification class inherit the Preprocessing class which means it has the same parameters as the Preprocessing class.
+Classification class inherits the Preprocessing class which means it has the same parameters as the Preprocessing class.
 
 #### def __init__(self, data=None, inputs=None, target=None, nan_values=None, normalization=None, test_size=0.20, random_state=None, label_encode_inputs=True, label_encode_target=False, problem=None, raise_warnings=True, verbosity=0)
 
