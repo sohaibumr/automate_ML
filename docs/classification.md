@@ -97,14 +97,14 @@ dpi           = str    :  Quality of the figure  (default = 600)
 Plot importance of each selected feature towards the prediction of the target. It uses mutual importance function of Scikit-learn.
 
 ````
-kind       = str    :   Type of plot: (default = 'barh'); Available types = 'barh', 'bar', 'pie', 'line', 'area'  
-random_no  = any    :	  Random number to reproduce results (default = None)
-figsize    = tuple  :   Tuple of two integers for determining the figure size (default =(22, 16))		 
-fontsize   = int    :	  Font size of color-bar and x, y axis (default =20)
-color      = str    :   Color for plot    (default = '#ff8000')	
-lw         = float  :   Width of bars if kind == 'bar' or 'barh' (default = 5.0)
-save_fig   = bool   :   Save plot in the current working directory if True (default = False)
-figname    = str    :	  Name of fig if save_fig is True (default = "Feature_imp_Plot(MI).png")
+kind       = str    :  Type of plot: (default = 'barh'); Available types = 'barh', 'bar', 'pie', 'line', 'area'  
+random_no  = any    :  Random number to reproduce results (default = None)
+figsize    = tuple  :  Tuple of two integers for determining the figure size (default =(22, 16))		 
+fontsize   = int    :  Font size of color-bar and x, y axis (default =20)
+color      = str    :  Color for plot    (default = '#ff8000')	
+lw         = float  :  Width of bars if kind == 'bar' or 'barh' (default = 5.0)
+save_fig   = bool   :  Save plot in the current working directory if True (default = False)
+figname    = str    :  Name of fig if save_fig is True (default = "Feature_imp_Plot(MI).png")
 
 ````
 
@@ -134,6 +134,6 @@ dpi         = int    :   Quality of the image (default=600)
 Save outputs as a text file.
 
 ````
-file_name  = str  : 	Name for the file (default='classification_data')
-verbosity  = int  :   Quantity of the data you want to save (default=2). Other options are 0 and 1.
+file_name  = str  :  Name for the file (default='classification_data')
+verbosity  = int  :  Quantity of the data you want to save (default=2). Other options are 0 and 1.
 ````
