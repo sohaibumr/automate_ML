@@ -15,7 +15,7 @@ The stable version of the automate-ML can be installed using pip (https://pypi.o
 ````
 pip install automate-ML 
 ````
-The zip file of the library can also be downloaded or cloned:
+The package can also be downloaded or cloned using git:
 
 ````
 git clone https://github.com/sohaibumr/automate_ML.git
