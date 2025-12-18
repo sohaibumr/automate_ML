@@ -21,7 +21,7 @@ The package can also be downloaded or cloned using git:
 git clone https://github.com/sohaibumr/automate_ML.git
 ````
 
-## How to use:
+## Quick Example:
 
 **The usage of this package is explained through different examples (Check examples folder).**
 
@@ -66,4 +66,5 @@ clf.Confusion_matrix()
 ## Documentation:
 
 For the documentation see the docs folder.
+
 
