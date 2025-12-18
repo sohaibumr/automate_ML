@@ -1,6 +1,6 @@
 # automate-ML
 
-<img width="636" height="424" alt="automate-ML_fig" align="center" src="https://github.com/user-attachments/assets/e6a357eb-8da3-470d-94a3-6076700d2fc1" />
+<img align="center" width="636" height="424" alt="automate-ML_fig" src="https://github.com/user-attachments/assets/e6a357eb-8da3-470d-94a3-6076700d2fc1" />
 
 
 [![Downloads](https://static.pepy.tech/badge/automate-ML)](https://pepy.tech/project/automate-ML)
@@ -70,6 +70,7 @@ clf.Confusion_matrix()
 ## Documentation:
 
 For the documentation see the docs folder.
+
 
 
 
