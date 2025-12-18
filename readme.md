@@ -1,5 +1,8 @@
 # automate-ML
 
+<img width="1536" height="1024" alt="automate-ML_fig" src="https://github.com/user-attachments/assets/e6a357eb-8da3-470d-94a3-6076700d2fc1" />
+
+
 [![Downloads](https://static.pepy.tech/badge/automate-ML)](https://pepy.tech/project/automate-ML)
 
 Simple and mechanized way to solve classification and regression problems. This python package is able to preprocess the data and output the results in the numerical as well as in the graphical form. <br /> <br />
@@ -13,7 +16,8 @@ The purpose of this python package is to:
 
 The stable version of the automate-ML can be installed using pip (https://pypi.org/project/automate-ML/):
 ````
-pip install automate-ML 
+pip install automate-ML <img width="1536" height="1024" alt="automate-ML_fig" src="https://github.com/user-attachments/assets/d5a2970b-c82c-422e-ab2d-ebc5a6779988" />
+
 ````
 The package can also be downloaded or cloned using git:
 
@@ -66,5 +70,6 @@ clf.Confusion_matrix()
 ## Documentation:
 
 For the documentation see the docs folder.
+
 
 
