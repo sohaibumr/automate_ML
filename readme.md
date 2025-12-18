@@ -1,7 +1,7 @@
 # automate-ML
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e6a357eb-8da3-470d-94a3-6076700d2fc1" alt="automate-ML_fig" width="500"/>
+  <img src="https://github.com/user-attachments/assets/e6a357eb-8da3-470d-94a3-6076700d2fc1" alt="automate-ML_fig" width="700"/>
 </p>
 
 
@@ -72,6 +72,7 @@ clf.Confusion_matrix()
 ## Documentation:
 
 For the documentation see the docs folder.
+
 
 
 
