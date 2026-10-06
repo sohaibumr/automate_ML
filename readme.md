@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e6a357eb-8da3-470d-94a3-6076700d2fc1" alt="automate-ML_fig" width="700"/>
 </p>
-
+![automateML overview](images/overview.png)
 
 [![Downloads](https://static.pepy.tech/badge/automate-ML)](https://pepy.tech/project/automate-ML)
 
