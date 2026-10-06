@@ -1,6 +1,6 @@
 # automate-ML
 
-[automateML overview](images/overview.png)
+![automateML overview](images/overview.png)
 
 [![Downloads](https://static.pepy.tech/badge/automate-ML)](https://pepy.tech/project/automate-ML)
 
