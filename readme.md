@@ -1,8 +1,7 @@
 # automate-ML
+[![Downloads](https://static.pepy.tech/badge/automate-ML)](https://pepy.tech/project/automate-ML)
 
 ![automateML overview](images/automateML_overview.png)
-
-[![Downloads](https://static.pepy.tech/badge/automate-ML)](https://pepy.tech/project/automate-ML)
 
 Simple and mechanized way to solve classification and regression problems. This python package is able to preprocess the data and output the results in the numerical as well as in the graphical form. <br /> <br />
 The purpose of this python package is to:
